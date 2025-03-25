@@ -1,12 +1,9 @@
-from flask import Flask, url_for, render_template
-from routes.home import home_route
-from routes.cliente import cliente_route
-
+from flask import Flask
+from config import config_all
 
 app = Flask(__name__)
 
-app.register_blueprint(home_route)
-app.register_blueprint(cliente_route, url_prefix='/cliente')
+config_all(app)
 
 app.run(debug=True)
 
